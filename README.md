@@ -1,7 +1,6 @@
 # Cyclone Preheater — Abnormal Operation Detection
 
-**Algo8 AI · Data Science (General) Assignment**
-**Candidate:** Pavitra Danappa Byali
+
 
 ---
 
