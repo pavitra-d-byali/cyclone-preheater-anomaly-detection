@@ -1,0 +1,32 @@
+# Raw data & large files
+*.csv
+!abnormal_periods.csv
+!top_15_abnormal_periods.csv
+!analysis_summary.csv
+!acquisition_outages.csv
+Data*.csv
+*dataset*
+
+# Python & environments
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archives & temporary
+*.zip
+*.tar.gz
+*.log
+_work/
+scratch/
