@@ -1,0 +1,102 @@
+========================================================================
+PHASE 1 - DATA AUDIT
+========================================================================
+shape: (377719, 9)
+columns: ['time', 'Cyclone_Inlet_Gas_Temp', 'Cyclone_Material_Temp', 'Cyclone_Outlet_Gas_draft', 'Cyclone_cone_draft', 'Cyclone_Gas_Outlet_Temp', 'Cyclone_Inlet_Draft', 'ts', 'valid']
+dtypes:
+time                                   str
+Cyclone_Inlet_Gas_Temp             float64
+Cyclone_Material_Temp              float64
+Cyclone_Outlet_Gas_draft           float64
+Cyclone_cone_draft                 float64
+Cyclone_Gas_Outlet_Temp            float64
+Cyclone_Inlet_Draft                float64
+ts                          datetime64[ns]
+valid                                 bool
+memory: 30.4 MB
+
+-- timestamps --
+DD-MM-YYYY format rows: 150,484
+M/D/YYYY    format rows: 227,235
+unparseable: 0
+range: 2017-01-01 00:00:00 -> 2020-12-07 23:55:00  (1436 days)
+monotonic: True
+duplicate timestamps: 0
+sampling interval value counts (minutes):
+ts
+5.0        377704
+5765.0          6
+1440.0          3
+34565.0         2
+33125.0         2
+6465.0          1
+intervals > 5 min: 14  (max 34565 min)
+  gap 34565 min: 2020-08-07 23:55:00 -> 2020-09-01 00:00:00
+  gap 34565 min: 2020-10-07 23:55:00 -> 2020-11-01 00:00:00
+  gap 33125 min: 2020-09-07 23:55:00 -> 2020-10-01 00:00:00
+  gap 33125 min: 2020-11-07 23:55:00 -> 2020-12-01 00:00:00
+  gap 6465 min: 2020-07-08 12:15:00 -> 2020-07-13 00:00:00
+  gap 5765 min: 2020-02-08 23:55:00 -> 2020-02-13 00:00:00
+  gap 5765 min: 2020-01-08 23:55:00 -> 2020-01-13 00:00:00
+  gap 5765 min: 2020-06-08 23:55:00 -> 2020-06-13 00:00:00
+  gap 5765 min: 2020-04-08 23:55:00 -> 2020-04-13 00:00:00
+  gap 5765 min: 2020-03-08 23:55:00 -> 2020-03-13 00:00:00
+
+-- missing / sentinel values --
+rows with 'I/O Timeout' in ALL 6 sensors: 0
+rows with ANY non-numeric sensor cell:    1,595
+sentinel token inventory: {}
+NaN per sensor after coercion: {'Cyclone_Inlet_Gas_Temp': 1320, 'Cyclone_Material_Temp': 1591, 'Cyclone_Outlet_Gas_draft': 1321, 'Cyclone_cone_draft': 1320, 'Cyclone_Gas_Outlet_Temp': 1321, 'Cyclone_Inlet_Draft': 1322}
+
+fully duplicated rows: 0
+
+-- descriptive statistics --
+                             count        mean         std     min       0.1%        1%      5%       25%      50%     75%     95%        99%       99.9%      max
+Cyclone_Inlet_Gas_Temp    376399.0  727.348549  328.664814    0.00   15.60000   23.5300   30.19  856.2700  882.380  901.11  934.07   969.8602  1026.13408  1157.63
+Cyclone_Material_Temp     376128.0  750.830483  350.921068 -185.00    0.00000    0.0000   20.43  867.6675  913.360  943.66  985.81  1017.8973  1077.39365  1375.00
+Cyclone_Outlet_Gas_draft  376398.0 -177.820685   99.147236 -456.66 -319.65015 -296.6300 -277.61 -247.1900 -215.260 -170.13    4.68    13.3503    23.11603    40.27
+Cyclone_cone_draft        376399.0 -164.572619   90.103023 -459.31 -298.11000 -278.1600 -258.80 -226.7700 -198.560 -143.64    0.33     1.8200     7.86602   488.86
+Cyclone_Gas_Outlet_Temp   376398.0  715.759972  325.346446   13.79   15.56000   23.8500   30.24  801.9600  871.525  899.30  933.05   961.8603  1007.40603  1375.00
+Cyclone_Inlet_Draft       376397.0 -141.302857   77.615576 -396.37 -260.81416 -236.8304 -221.12 -193.5100 -169.460 -136.29    0.85    13.8104    24.25604    41.64
+
+-- unique values / variance --
+Cyclone_Inlet_Gas_Temp      39731
+Cyclone_Material_Temp       39656
+Cyclone_Outlet_Gas_draft    27663
+Cyclone_cone_draft          26482
+Cyclone_Gas_Outlet_Temp     48038
+Cyclone_Inlet_Draft         24004
+variance:
+Cyclone_Inlet_Gas_Temp      108020.559745
+Cyclone_Material_Temp       123145.596036
+Cyclone_Outlet_Gas_draft      9830.174499
+Cyclone_cone_draft            8118.554750
+Cyclone_Gas_Outlet_Temp     105850.310074
+Cyclone_Inlet_Draft           6024.177666
+
+-- longest constant-value runs --
+  Cyclone_Inlet_Gas_Temp: max_const_run=303
+  Cyclone_Material_Temp: max_const_run=1276
+  Cyclone_Outlet_Gas_draft: max_const_run=288
+  Cyclone_cone_draft: max_const_run=288
+  Cyclone_Gas_Outlet_Temp: max_const_run=527
+  Cyclone_Inlet_Draft: max_const_run=288
+
+-- Pearson correlation --
+                          Cyclone_Inlet_Gas_Temp  Cyclone_Material_Temp  Cyclone_Outlet_Gas_draft  Cyclone_cone_draft  Cyclone_Gas_Outlet_Temp  Cyclone_Inlet_Draft
+Cyclone_Inlet_Gas_Temp                     1.000                  0.965                    -0.903              -0.900                    0.991               -0.902
+Cyclone_Material_Temp                      0.965                  1.000                    -0.881              -0.878                    0.957               -0.879
+Cyclone_Outlet_Gas_draft                  -0.903                 -0.881                     1.000               0.968                   -0.899                0.995
+Cyclone_cone_draft                        -0.900                 -0.878                     0.968               1.000                   -0.893                0.969
+Cyclone_Gas_Outlet_Temp                    0.991                  0.957                    -0.899              -0.893                    1.000               -0.899
+Cyclone_Inlet_Draft                       -0.902                 -0.879                     0.995               0.969                   -0.899                1.000
+
+-- temporal coverage --
+rows per year:
+ts
+2017    104833
+2018    104833
+2019    104833
+2020     63220
+months: 48, min rows/month=2016, max rows/month=8928
+rows expected at constant 5-min cadence: 413,856 vs actual 377,719 (deficit 36,137)
