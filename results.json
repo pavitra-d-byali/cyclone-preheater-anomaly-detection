@@ -1,0 +1,282 @@
+{
+  "data": {
+    "rows": 377719,
+    "cols": 7,
+    "start": "2017-01-01 00:00:00",
+    "end": "2020-12-07 23:55:00",
+    "span_days": 1436,
+    "years": "2017-2020",
+    "missing": 1595,
+    "dup_ts": 0,
+    "dup_rows": 0,
+    "max_gap_min": 34565.0,
+    "n_gaps": 14,
+    "quality_findings": [
+      "two timestamp locales (DD-MM-YYYY and M/D/YYYY) in one file",
+      "file is NOT time-sorted (text-sorted export) - sorted in preprocessing",
+      "1,595 rows contain SCADA sentinel tokens ({})"
+    ]
+  },
+  "results": {
+    "n_flagged_samples": 39441,
+    "pct_flagged": 10.441889341018058,
+    "n_periods": 1055,
+    "n_process_correlated": 386,
+    "n_instrument_fault": 49,
+    "n_single_sensor": 348,
+    "n_startup_context": 88,
+    "n_shutdown_transition": 87,
+    "n_post_outage_baseline": 1,
+    "n_rankable": 879,
+    "n_shutdown_context": 205,
+    "n_outage_runs": 357,
+    "median_dur_min": 75.0,
+    "max_dur_min": 5850.0,
+    "max_dur_h": 97.5,
+    "dominant_vars": "Cyclone_Outlet_Gas_draft (545), Cyclone_Inlet_Draft (517), Cyclone_cone_draft (506)"
+  },
+  "validation": {
+    "p50": 1.6952111692451548,
+    "p99": 50.0,
+    "max": 50.0,
+    "method_corr": 0.5494666321244773,
+    "n_top_s": 6150,
+    "n_top_i": 3760,
+    "top1pct_jaccard": 0.307,
+    "pct_if_top1pct_also_robust_flagged": 98.7,
+    "silhouette": 0.8523953295169852,
+    "db": 0.21333979165462116,
+    "regime_metrics": [
+      {
+        "k": 2,
+        "silhouette": 0.8485,
+        "davies_bouldin": 0.2147,
+        "calinski_harabasz": 147222.3
+      },
+      {
+        "k": 3,
+        "silhouette": 0.7943,
+        "davies_bouldin": 0.6827,
+        "calinski_harabasz": 94652.9
+      },
+      {
+        "k": 4,
+        "silhouette": 0.4805,
+        "davies_bouldin": 0.9891,
+        "calinski_harabasz": 75411.7
+      },
+      {
+        "k": 5,
+        "silhouette": 0.6065,
+        "davies_bouldin": 0.8327,
+        "calinski_harabasz": 73779.4
+      },
+      {
+        "k": 6,
+        "silhouette": 0.3393,
+        "davies_bouldin": 1.078,
+        "calinski_harabasz": 66483.6
+      }
+    ],
+    "n_raw_runs": 4657,
+    "n_periods": 1055,
+    "pct_samples_in_intervals": 95.1,
+    "pct_multisensor": 53.3,
+    "median_dur_min": 75.0,
+    "max_dur_min": 5850.0,
+    "sensitivity": [
+      {
+        "z": 4.0,
+        "window": 24,
+        "jaccard_vs_base": 0.728,
+        "flagged": 44265
+      },
+      {
+        "z": 4.0,
+        "window": 36,
+        "jaccard_vs_base": 0.785,
+        "flagged": 46906
+      },
+      {
+        "z": 4.0,
+        "window": 54,
+        "jaccard_vs_base": 0.71,
+        "flagged": 50084
+      },
+      {
+        "z": 5.0,
+        "window": 24,
+        "jaccard_vs_base": 0.796,
+        "flagged": 36852
+      },
+      {
+        "z": 5.0,
+        "window": 36,
+        "jaccard_vs_base": 0.884,
+        "flagged": 39485
+      },
+      {
+        "z": 5.0,
+        "window": 54,
+        "jaccard_vs_base": 0.786,
+        "flagged": 42104
+      },
+      {
+        "z": 6.0,
+        "window": 24,
+        "jaccard_vs_base": 0.739,
+        "flagged": 32763
+      },
+      {
+        "z": 6.0,
+        "window": 36,
+        "jaccard_vs_base": 0.815,
+        "flagged": 35085
+      },
+      {
+        "z": 6.0,
+        "window": 54,
+        "jaccard_vs_base": 0.746,
+        "flagged": 37580
+      }
+    ],
+    "jaccard_range": "0.71-0.88"
+  },
+  "top15_table": [
+    [
+      1,
+      "2018-07-15 21:15:00",
+      "2018-07-15 23:35:00",
+      145,
+      "1.000",
+      "instrument_fault",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      2,
+      "2020-05-17 10:30:00",
+      "2020-05-17 22:20:00",
+      715,
+      "0.973",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      3,
+      "2017-08-06 16:30:00",
+      "2017-08-07 01:20:00",
+      535,
+      "0.968",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      4,
+      "2017-03-30 20:55:00",
+      "2017-03-30 23:30:00",
+      160,
+      "0.965",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Outlet_Gas_draft; Cy"
+    ],
+    [
+      5,
+      "2019-07-04 20:10:00",
+      "2019-07-04 20:50:00",
+      45,
+      "0.963",
+      "instrument_fault",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      6,
+      "2018-09-07 00:00:00",
+      "2018-09-08 01:20:00",
+      1525,
+      "0.936",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      7,
+      "2019-06-30 22:20:00",
+      "2019-06-30 23:55:00",
+      100,
+      "0.932",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      8,
+      "2019-01-08 15:45:00",
+      "2019-01-09 01:20:00",
+      580,
+      "0.924",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      9,
+      "2017-07-31 04:30:00",
+      "2017-07-31 17:00:00",
+      755,
+      "0.910",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      10,
+      "2018-08-03 00:00:00",
+      "2018-08-03 01:20:00",
+      85,
+      "0.898",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Outlet_Gas_draft; Cy"
+    ],
+    [
+      11,
+      "2017-09-13 00:00:00",
+      "2017-09-14 00:30:00",
+      1475,
+      "0.885",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Gas_Outlet_Temp"
+    ],
+    [
+      12,
+      "2019-10-26 15:00:00",
+      "2019-10-27 06:55:00",
+      960,
+      "0.882",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      13,
+      "2019-04-14 18:40:00",
+      "2019-04-16 05:55:00",
+      2120,
+      "0.881",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Gas_Outlet_Temp"
+    ],
+    [
+      14,
+      "2018-06-12 00:00:00",
+      "2018-06-13 01:20:00",
+      1525,
+      "0.872",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ],
+    [
+      15,
+      "2018-05-31 19:05:00",
+      "2018-06-01 01:20:00",
+      380,
+      "0.872",
+      "process_correlated",
+      "Cyclone_Inlet_Gas_Temp; Cyclone_Material_Temp; Cyclo"
+    ]
+  ]
+}

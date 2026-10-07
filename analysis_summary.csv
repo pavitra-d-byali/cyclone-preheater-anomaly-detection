@@ -1,0 +1,29 @@
+metric,value
+records,377719
+valid_records,376124
+sentinel_records,1595
+date_start,2017-01-01 00:00:00
+date_end,2020-12-07 23:55:00
+sampling_interval_min,5
+local_window_samples,36
+z_threshold,5.0
+min_period_samples,6
+merge_gap_samples,3
+regime_k,2
+regime_silhouette,0.8485
+flagged_samples_raw,41504
+flagged_samples_persisted,39441
+n_abnormal_periods,1055
+periods_process_correlated,386
+periods_instrument_fault,49
+periods_single_sensor,348
+periods_startup_context,88
+periods_shutdown_transition,87
+periods_post_outage_baseline,1
+periods_rankable,879
+periods_in_shutdown_context,205
+acquisition_outage_runs,357
+median_duration_min,75.0
+max_duration_min,5850.0
+sensitivity_jaccard_range,0.71-0.88
+method_agreement_spearman,0.549
