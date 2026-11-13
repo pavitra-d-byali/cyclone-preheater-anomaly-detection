@@ -1130,8 +1130,8 @@ def rank_periods(periods: pd.DataFrame, cfg: Config) -> pd.DataFrame:
 # 8. VISUALIZATION
 # ==========================================================================
 def make_plots(df, feats, c, S, if_pct, labels, flag_pts, periods,
-               corr, cfg, outdir: Path):
-    plots = outdir / "plots"
+               corr, cfg, outdir: Path, plots_dir: Path | None = None):
+    plots = plots_dir if plots_dir is not None else (outdir / "plots")
     plots.mkdir(exist_ok=True)
     sns.set_theme(style="whitegrid")
     t = df["ts"].values
@@ -1368,7 +1368,10 @@ def main():
     ap.add_argument("--input", required=True,
                     help='assignment CSV, e.g. "C:/Users/dell/Downloads/Data (1).csv" '
                          "(the original assignment PDF is also accepted)")
-    ap.add_argument("--outdir", default=str(Path(__file__).resolve().parent))
+    root_dir = Path(__file__).resolve().parent
+    default_outdir = root_dir / "outputs"
+    ap.add_argument("--outdir", default=str(default_outdir),
+                    help="output directory for CSV and JSON reports (default: outputs/)")
     args = ap.parse_args()
 
     outdir = Path(args.outdir)
@@ -1383,8 +1386,8 @@ def main():
 
     # -- Phase 1 audit ---------------------------------------------------
     rep = audit(df)
-    (outdir / "audit_report.txt").write_text(rep.pop("_report"),
-                                             encoding="utf-8")
+    audit_path = root_dir / "audit_report.txt" if outdir.resolve() == (root_dir / "outputs").resolve() else outdir / "audit_report.txt"
+    audit_path.write_text(rep.pop("_report"), encoding="utf-8")
 
     # -- Phase 3 features & regimes --------------------------------------
     feats = build_features(df, cfg)
@@ -1534,8 +1537,9 @@ def main():
                                          encoding="utf-8")
 
     # -- plots -------------------------------------------------------------
+    plots_dir = root_dir / "plots" if outdir.resolve() == (root_dir / "outputs").resolve() else outdir / "plots"
     make_plots(df, feats, c, S, if_pct, labels, flag_pts, periods,
-               pd.DataFrame(rep["corr"]), cfg, outdir)
+               pd.DataFrame(rep["corr"]), cfg, outdir, plots_dir=plots_dir)
 
     # -- final report -------------------------------------------------------
     print("\n" + "=" * 72)

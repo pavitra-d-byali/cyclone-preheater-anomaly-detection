@@ -15,9 +15,14 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 HERE = Path(__file__).resolve().parent
 PLOTS = HERE / "plots"
-RESULTS = HERE / "results.json"
-TOP15_CSV = HERE / "top_15_abnormal_periods.csv"
-OUT = HERE / "Pavitra_Danappa_Byali_Algo8_Assignment.pptx"
+OUTPUTS = HERE / "outputs" if (HERE / "outputs").exists() else HERE
+PRESENTATION = HERE / "presentation" if (HERE / "presentation").exists() else HERE
+
+RESULTS = OUTPUTS / "results.json" if (OUTPUTS / "results.json").exists() else HERE / "results.json"
+TOP15_CSV = OUTPUTS / "top_15_abnormal_periods.csv" if (OUTPUTS / "top_15_abnormal_periods.csv").exists() else HERE / "top_15_abnormal_periods.csv"
+OUT = PRESENTATION / "Pavitra_Danappa_Byali_Algo8_Assignment.pptx" if PRESENTATION.exists() else HERE / "Pavitra_Danappa_Byali_Algo8_Assignment.pptx"
+
+REPO_URL = "https://github.com/pavitra-d-byali/cyclone-preheater-anomaly-detection"
 
 # Black & White color constants
 BLACK = RGBColor(0x00, 0x00, 0x00)
@@ -68,6 +73,8 @@ def _bullets(slide, items, left, top, width, height, size=13):
         r.font.size = Pt(size)
         r.font.bold = bold
         r.font.color.rgb = color if bold else DARK_GRAY
+        if "https://github.com/" in text:
+            r.hyperlink.address = REPO_URL
         p.space_after = Pt(5)
     return box
 
@@ -115,7 +122,7 @@ prs.slide_width, prs.slide_height = Inches(13.33), Inches(7.5)
 _title(s1, "1. Data Preparation & Characteristics", "Audit findings, physical multi-modality, and preprocessing decisions")
 
 d = R["data"]
-repo_url = "https://github.com/pavitra-d-byali/cyclone-preheater-anomaly-detection"
+repo_url = REPO_URL
 _bullets(s1, [
     (f"GitHub Repository: {repo_url}", True, BLACK),
     (f"Core Dataset Metrics: 377,719 rows x 7 cols (3 temperatures + 3 drafts) over 1,436 days (2017–2020).", True, BLACK),

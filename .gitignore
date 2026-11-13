@@ -1,13 +1,20 @@
-# Raw data & large files
+# Raw data & large datasets
 *.csv
+!outputs/*.csv
 !abnormal_periods.csv
 !top_15_abnormal_periods.csv
 !analysis_summary.csv
 !acquisition_outages.csv
 Data*.csv
 *dataset*
+anomaly_scored_data.csv
 
-# Python & environments
+# Personal & identity documents
+*.pdf
+*id card*
+*resume*
+
+# Python & virtual environments
 __pycache__/
 *.py[cod]
 *.class
@@ -18,13 +25,13 @@ env/
 venv/
 ENV/
 
-# OS & IDE
+# OS & IDE artifacts
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 
-# Archives & temporary
+# Archives & temporary scratch files
 *.zip
 *.tar.gz
 *.log
