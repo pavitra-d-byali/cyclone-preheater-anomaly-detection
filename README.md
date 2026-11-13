@@ -1,6 +1,8 @@
 # Cyclone Preheater — Abnormal Operation Detection
 
-
+**Algo8 AI · Data Science (General) Assignment**  
+**Candidate:** Pavitra Danappa Byali  
+**Repository:** [cyclone-preheater-anomaly-detection](https://github.com/pavitra-d-byali/cyclone-preheater-anomaly-detection)
 
 ---
 
@@ -230,36 +232,70 @@ is highlighted; its near-neighbours (z = 5, w ∈ {24, 54}) achieve Jaccard 0.79
 
 ---
 
+## Repository Structure
+
+```
+cyclone-preheater-anomaly-detection/
+├── README.md
+├── run_analysis.py
+├── build_ppt.py
+├── requirements.txt
+├── audit_report.txt
+│
+├── outputs/
+│   ├── abnormal_periods.csv
+│   ├── top_15_abnormal_periods.csv
+│   ├── analysis_summary.csv
+│   ├── acquisition_outages.csv
+│   └── results.json
+│
+├── plots/
+│   ├── 01_sensor_timeseries.png
+│   ├── 02_distributions.png
+│   ├── 03_correlation_heatmap.png
+│   ├── 04_missing_pattern.png
+│   ├── 05_score_distribution.png
+│   ├── 06_regimes_pca.png
+│   ├── 07_period_severity_timeline.png
+│   ├── 08_top_period_zoom.png
+│   └── 09_pipeline_architecture.png
+│
+└── presentation/
+    └── Pavitra_Danappa_Byali_Algo8_Assignment.pptx
+```
+
+---
+
 ## 8. How to Run
 
 ```bash
 pip install -r requirements.txt
 
-# Run on the assignment CSV:
+# Run full analysis on assignment CSV (writes to outputs/, plots/, and audit_report.txt):
 python run_analysis.py --input "C:/Users/dell/Downloads/Data (1).csv"
 
-# Optional: custom output directory:
-python run_analysis.py --input "Data (1).csv" --outdir ./output
+# Build final 4-slide presentation (writes to presentation/):
+python build_ppt.py
 ```
 
-Runtime ≈ 70 seconds on a laptop CPU. Seeds fixed via `RANDOM_STATE = 42`.
+Runtime ≈ 70 seconds on a standard CPU. Seeds fixed via `RANDOM_STATE = 42` for strict reproducibility.
 
 ---
 
 ## 9. Outputs
 
-| File | Description |
+| Path | Description |
 |---|---|
-| `abnormal_periods.csv` | All 1,055 periods with rank, start/end, duration, severity, magnitude, breadth, category, evidence, regime, affected sensors |
-| `top_15_abnormal_periods.csv` | Top 15 by severity (rankable only) |
-| `anomaly_scored_data.csv` | All 377,719 rows: raw sensors, regime, validity, composite score, IF percentile, per-sensor z, raw/persisted flags |
-| `analysis_summary.csv` | Key metrics and parameters |
-| `acquisition_outages.csv` | 357 sentinel runs / calendar gaps (never scored) |
-| `audit_report.txt` | Full Phase 1 data audit |
-| `results.json` | Machine-readable results for the PPT builder |
-| `plots/*.png` | 8 diagnostic plots (timeseries, distributions, correlation, missing pattern, score distributions, regime PCA, severity timeline, top-period zoom) |
-| `build_ppt.py` | Reproducible PPT builder — reads `results.json`, no hardcoded numbers |
-| `*.pptx` | 4-slide submission deck |
+| `outputs/abnormal_periods.csv` | All 1,055 detected periods with rank, start/end, duration, severity, magnitude, breadth, category, evidence, regime, and abnormal sensors |
+| `outputs/top_15_abnormal_periods.csv` | Top 15 ranked candidate periods by severity (rankable only) |
+| `outputs/analysis_summary.csv` | Summary metrics, regime statistics, and threshold parameters |
+| `outputs/acquisition_outages.csv` | 357 sentinel runs and multi-day telemetry dropouts (documented separately; never scored) |
+| `outputs/results.json` | Complete machine-readable audit and period statistics consumed by `build_ppt.py` |
+| `audit_report.txt` | Read-only Phase 1 data audit report |
+| `plots/*.png` | 9 high-resolution diagnostic visualizations and pipeline architecture diagrams |
+| `build_ppt.py` | Reproducible slide deck generator reading from `outputs/results.json` |
+| `presentation/Pavitra_Danappa_Byali_Algo8_Assignment.pptx` | Final 4-slide submission deck with embedded active GitHub repository hyperlink |
+
 
 ---
 
